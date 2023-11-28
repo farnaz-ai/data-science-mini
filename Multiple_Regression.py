@@ -7,4 +7,4 @@ y= df['time']
 regr = linear_model.LinearRegression()
 regr.fit(x,y)
 
-predicttime = regr.predict([[, ]])
+predicttime = regr.predict([['0000000517', ]])
