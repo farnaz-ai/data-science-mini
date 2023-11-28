@@ -1,0 +1,30 @@
+import sys 
+import numpy
+import matplotlib
+import matplotlib.pyplot as plt
+import scipy
+matplotlib.use('Agg')
+
+
+
+x=numpy.random.normal(1,12,123)
+y=numpy.random.normal(2,34,123)
+
+
+#NumPy has a method that lets us make a polynomial model:
+
+mymodel=numpy.poly1d(numpy.polyfit(x,y,3))
+
+#Then specify how the line will display, we start at position 2, and end at position 100:
+
+myline=numpy.linspace(1,100,200)
+
+plt.scatter(x,y)
+plt.plot(myline,mymodel(myline))
+
+
+
+plt.show()
+
+sys.stdout.flush()
+plt.savefig(sys.stdout.buffer)
