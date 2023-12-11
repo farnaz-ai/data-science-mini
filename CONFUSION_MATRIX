@@ -33,3 +33,7 @@ plt.show()
 #Two  lines to make our compiler able to draw:
 plt.savefig(sys.stdout.buffer)
 sys.stdout.flush()
+
+#THEN WE CHECK THE ACCURACY OF THIS
+Accuracy= metrics.accuracy_score(actual,predicted)
+print(Accuracy)
