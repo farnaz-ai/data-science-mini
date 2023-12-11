@@ -1,0 +1,35 @@
+import numpy
+
+
+#additional imports
+import sys
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('Agg')
+
+
+
+actual=numpy.random.binomial(1,0.9,size=100)
+predicted=numpy.random.binomial(1,0.5, size=100)
+
+#In order to create the confusion matrix we need to import metrics from the sklearn module.
+
+
+from sklearn import metrics
+#once we import metrics we can use "confusion matrix function" on our values
+
+confusion_matrix= metrics.confusion_matrix(actual,predicted)
+
+#To create a more interpretable visual display we need to convert the table into a confusion matrix display.
+
+display=metrics.ConfusionMatrixDisplay(confusion_matrix= confusion_matrix, display_labels=[True,False])
+
+#Vizualizing the display requires that we import pyplot from matplotlib.
+
+
+display.plot()
+plt.show()
+
+#Two  lines to make our compiler able to draw:
+plt.savefig(sys.stdout.buffer)
+sys.stdout.flush()
