@@ -1,0 +1,27 @@
+#Three lines to make our compiler able to draw:
+import sys
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('Agg')
+import numpy as np
+
+
+x=[23,22,12,23,24,15,34,25,46,11]
+y=[1,23,24,32,43,12,22,13,45,3]
+
+from scipy.cluster.hierarchy import dendrogram, linkage
+
+data = list(zip(x, y))
+linkage_data= linkage(data, method='ward', metric='euclidean')
+dendrogram(linkage_data)
+
+
+
+
+
+
+
+
+plt.show()
+plt.savefig(sys.stdout.buffer)
+sys.stdout.flush()
